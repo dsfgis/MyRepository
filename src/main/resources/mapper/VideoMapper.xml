@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dsf.online_class.mapper.VideoMapper">
+    <select id="listVideo" resultType="Video">
+
+        select * from video
+    </select>
+    <select id="listVideoBanner" resultType="VideoBanner">
+
+        select * from video_banner
+    </select>
+    <resultMap id="VideoDetailResultMap" type="Video">
+
+        <result column="id" property="id" jdbcType="INTEGER"></result>
+        <result column="title" property="title" jdbcType="VARCHAR"></result>
+        <result column="cover_img" property="coverImg" jdbcType="VARCHAR"></result>
+        <result column="price" property="price" jdbcType="INTEGER"></result>
+        <result column="create_time" property="createTime" jdbcType=""></result>
+        <result column="point" property="point" jdbcType="DOUBLE"></result>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"></result>
+        <collection property="chapterList" ofType="Chapter">
+
+            <result column="chapter_id" property="id" jdbcType=""></result>
+            <result column="chapter_id" property="id" jdbcType=""></result>
+            <result column="chapter_id" property="id" jdbcType=""></result>
+        </collection>
+
+
+    </resultMap>
+    <select id="findDetailById" resultMap="VideoDetailResultMap"></select>
+</mapper>
