@@ -14,6 +14,13 @@ public class VideoServiceImpl implements VideoService {
 
     @Autowired
     private VideoMapper videoMapper;
+
+    @Override
+    public Video findDetailById(int video_id) {
+        Video video =  videoMapper.findDetailById(video_id);
+        return video;
+    }
+
     @Override
     public List<Video> listVideo() {
         return videoMapper.listVideo();

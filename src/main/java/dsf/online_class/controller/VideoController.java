@@ -8,6 +8,7 @@ import dsf.online_class.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.yaml.snakeyaml.events.Event;
 
 import java.util.List;
 
@@ -32,5 +33,10 @@ public class VideoController {
         List<VideoBanner> lstVideoBanner = videoService.listVideoBanner();
 
         return JsonData.buildSuccess(lstVideoBanner);
+    }
+    @RequestMapping(value = "findVideoById")
+    public JsonData findVideoById(int video_id){
+        Video video = videoService.findDetailById(video_id);
+        return JsonData.buildSuccess(video);
     }
 }
