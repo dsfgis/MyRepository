@@ -16,6 +16,6 @@ public class UserControlller {
 
     @PostMapping("register")
     public JsonData register(@RequestBody Map<String,String> userInfo){
-        
+        return null;
     }
 }
