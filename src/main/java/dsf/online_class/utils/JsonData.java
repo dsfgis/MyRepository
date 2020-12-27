@@ -27,11 +27,11 @@ public class JsonData {
         return new JsonData(0,"success",data);
 
     }
-    public static JsonData error(String msg)
+    public static JsonData buildError(String msg)
     {
         return new JsonData(-1,msg,null);
     }
-    public static JsonData error(Integer code,String msg)
+    public static JsonData buildError(Integer code,String msg)
     {
         return new JsonData(code,msg,null);
     }
