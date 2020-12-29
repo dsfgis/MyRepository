@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("api/v1/pub/user")
+@RequestMapping("api/v1/pri/user")
 public class UserControlller {
 
     @PostMapping("register")

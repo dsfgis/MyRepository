@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dsf.online_class.mapper.UserMapper">
+   <select id="findByphone" resultType="User">
+
+       select * from user where phone = #{phone}
+   </select>
+    
+    <insert id="save">
+        insert into  user  (name,pwd,had_img,phone,create_time) values (#{name,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},
+        #{hadImg,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP})
+    </insert>
+</mapper>
