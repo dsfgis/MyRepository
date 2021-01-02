@@ -7,5 +7,5 @@ import java.util.Map;
 
 public interface UserService {
     int save(Map<String,String> userInfo);
-    User findByPhone(@Param("phone") String phone);
+    User findByPhone( String phone);
 }

@@ -8,7 +8,7 @@
    </select>
     
     <insert id="save">
-        insert into  user  (name,pwd,had_img,phone,create_time) values (#{name,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},
-        #{hadImg,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP})
+        insert into  user  (name,pwd,head_img,phone,create_time) values (#{name,jdbcType=VARCHAR},#{pwd,jdbcType=VARCHAR},
+        #{headImg,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{createTime,jdbcType=TIMESTAMP})
     </insert>
 </mapper>
