@@ -1,8 +1,7 @@
 package dsf.online_class.service;
 
-import dsf.online_class.domain.Video;
-import dsf.online_class.domain.VideoBanner;
-import org.apache.ibatis.annotations.Param;
+import dsf.online_class.model.entity.Video;
+import dsf.online_class.model.entity.VideoBanner;
 
 import java.util.List;
 

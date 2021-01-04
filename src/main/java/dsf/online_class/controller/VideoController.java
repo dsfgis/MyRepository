@@ -1,14 +1,12 @@
 package dsf.online_class.controller;
 
-import dsf.online_class.domain.Video;
-import dsf.online_class.domain.VideoBanner;
+import dsf.online_class.model.entity.Video;
+import dsf.online_class.model.entity.VideoBanner;
 import dsf.online_class.service.VideoService;
-import dsf.online_class.service.impl.VideoServiceImpl;
 import dsf.online_class.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.yaml.snakeyaml.events.Event;
 
 import java.util.List;
 

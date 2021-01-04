@@ -1,11 +1,10 @@
 package dsf.online_class.utils;
 
-import dsf.online_class.domain.User;
+import dsf.online_class.model.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-import javax.security.auth.Subject;
 import java.util.Date;
 
 /**

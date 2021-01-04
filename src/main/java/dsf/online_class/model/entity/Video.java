@@ -1,4 +1,4 @@
-package dsf.online_class.domain;
+package dsf.online_class.model.entity;
 
 import java.util.Date;
 import java.util.List;
