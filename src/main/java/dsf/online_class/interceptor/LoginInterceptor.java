@@ -29,7 +29,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
             //从http头或参数中获取token值
             String token = request.getHeader("token");
-            if(token == null){
+            if(null == token){
                 token = request.getParameter("token");
             }
             if(StringUtils.isNotBlank(token)){
@@ -75,7 +75,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         try {
 
             ObjectMapper objectMapper = new ObjectMapper();
-            response.setContentType("application/json; charset=utf-8");
+            response.setContentType("application/json;charset=utf-8");
             PrintWriter writer = response.getWriter();
             writer.print(objectMapper.writeValueAsString(obj));
             writer.close();

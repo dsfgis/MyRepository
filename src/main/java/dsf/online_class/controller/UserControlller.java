@@ -1,15 +1,18 @@
 package dsf.online_class.controller;
 
 
+import dsf.online_class.model.entity.User;
 import dsf.online_class.model.request.LoginRequest;
 import dsf.online_class.service.UserService;
 import dsf.online_class.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
@@ -38,4 +41,16 @@ public class UserControlller {
         return token ==null? JsonData.buildError("error"): JsonData.buildSuccess(token);
 
     }
+
+    @PostMapping(value = "find_user_by_token")
+    public JsonData findByToken(HttpServletRequest request){
+
+        Integer userid = (Integer) request.getAttribute("user_id");
+        if(null == userid){
+            return JsonData.buildError("login error");
+        }
+        User user  = userService.findById(userid);
+        return JsonData.buildSuccess(user);
+    }
+
 }

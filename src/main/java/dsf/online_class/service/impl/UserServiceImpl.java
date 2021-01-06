@@ -60,4 +60,10 @@ public class UserServiceImpl implements UserService {
             return null;
         }
     }
+
+    @Override
+    public User findById(Integer userid) {
+        User  user = userMapper.findById(userid);
+        return user;
+    }
 }

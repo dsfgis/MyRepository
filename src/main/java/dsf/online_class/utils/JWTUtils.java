@@ -13,10 +13,11 @@ import java.util.Date;
 public class JWTUtils {
 
     private static final  long EXPIRE = 6000*60*24*7;//过期时间
-    private static final String SECRET ="";//秘钥
+    private static final String SECRET ="dsf";//秘钥
     private static final String TOKEN_PREFIX = "dsf";
 
     private static final String SUBJECT = "dsf";
+    //byte[] a = ['d','s','f'];
     /**
      * 根据用户信息生成令牌
      * @param user
@@ -28,7 +29,9 @@ public class JWTUtils {
                 claim("name",user.getName())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis()+ EXPIRE))
-                .signWith(SignatureAlgorithm.HS256,SECRET).compact();
+                .signWith(SignatureAlgorithm.HS256,SECRET.getBytes()).compact();
+
+                //  .signWith(SignatureAlgorithm.HS256,SECRET).compact();
         token = TOKEN_PREFIX+token;
         return token;
     }
