@@ -39,7 +39,7 @@ public class JWTUtils {
     public static final Claims checkJWT(String token){
         try {
 
-            Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token.replace(TOKEN_PREFIX,"")).getBody();
+            Claims claims = Jwts.parser().setSigningKey(SECRET.getBytes()).parseClaimsJws(token.replace(TOKEN_PREFIX,"")).getBody();
             return claims;
         }
         catch (Exception e)
