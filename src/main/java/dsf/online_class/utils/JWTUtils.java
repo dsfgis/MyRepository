@@ -17,7 +17,7 @@ public class JWTUtils {
     private static final String TOKEN_PREFIX = "dsf";
 
     private static final String SUBJECT = "dsf";
-    //byte[] a = ['d','s','f'];
+
     /**
      * 根据用户信息生成令牌
      * @param user
