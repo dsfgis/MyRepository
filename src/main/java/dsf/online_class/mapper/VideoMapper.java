@@ -26,5 +26,6 @@ public interface VideoMapper {
      * @return
      */
     Video findDetailById(@Param("video_id") int videoId);
+    Video findById(@Param("video_id") int videoId);
 }
 

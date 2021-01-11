@@ -21,8 +21,8 @@ public class VideoOrderServiceImpl implements VideoOrderService {
 
         VideoOrder videoOrder = videoOrderMapper.findByUserIdAndVideoIdAndState(userId,videoId,1);
 
+
         if(null!= videoOrder){return 0;}
-        
         return 0;
     }
 }

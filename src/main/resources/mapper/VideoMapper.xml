@@ -10,6 +10,9 @@
 
         select * from video_banner
     </select>
+    <select id="findById">
+        select * from video where id = #{video_id}
+    </select>
     <select id="findDetailById" resultMap="VideoDetailResultMap">
         select v.id,v.title,v.summary,v.cover_img,v.price,v.point,v.price,v.create_time,
     c.id as chapter_id,c.title as chapter_title,c.ordered,c.create_time as chapter_create_time,

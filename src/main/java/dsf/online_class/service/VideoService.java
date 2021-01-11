@@ -9,4 +9,5 @@ public interface VideoService {
     List<Video> listVideo();
     List<VideoBanner> listVideoBanner();
     Video findDetailById (int video_id);
+    Video findById(int video_id);
 }
