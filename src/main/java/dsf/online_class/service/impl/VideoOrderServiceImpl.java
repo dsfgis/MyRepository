@@ -1,10 +1,14 @@
 package dsf.online_class.service.impl;
 
+import dsf.online_class.mapper.EpisodeMapper;
 import dsf.online_class.mapper.VideoMapper;
 import dsf.online_class.mapper.VideoOrderMapper;
+import dsf.online_class.model.entity.Episode;
+import dsf.online_class.model.entity.PlayRecore;
 import dsf.online_class.model.entity.Video;
 import dsf.online_class.model.entity.VideoOrder;
 import dsf.online_class.service.VideoOrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -14,8 +18,12 @@ import java.util.UUID;
 public class VideoOrderServiceImpl implements VideoOrderService {
 
 
+    @Autowired
     private VideoMapper videoMapper;
+    @Autowired
     private VideoOrderMapper videoOrderMapper;
+    @Autowired
+    private EpisodeMapper episodeMapper;
     /**
      * 下单
      * @param userId
@@ -39,6 +47,17 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         newVideoOrder.setVideoTitle(video.getTitle());
         newVideoOrder.setTotalFree(video.getPrice());
         int rows  = videoOrderMapper.saveOrder(newVideoOrder);
-        return rows;
+        //return rows;
+        //生成播放记录
+        if(1==rows){
+            Episode episode = episodeMapper.findFirstEpisodeByVideoId((videoId));
+            PlayRecore playRecore = new PlayRecore();
+            playRecore.setCreateTime(new Date());
+            playRecore.setEpisodeId(episode.getId());
+
+
+        }
+
+        return 0;
     }
 }
