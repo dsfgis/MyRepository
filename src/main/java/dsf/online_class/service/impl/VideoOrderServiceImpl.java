@@ -1,10 +1,12 @@
 package dsf.online_class.service.impl;
 
+import dsf.online_class.Exception.CustomException;
 import dsf.online_class.mapper.EpisodeMapper;
+import dsf.online_class.mapper.PlayRecordMapper;
 import dsf.online_class.mapper.VideoMapper;
 import dsf.online_class.mapper.VideoOrderMapper;
 import dsf.online_class.model.entity.Episode;
-import dsf.online_class.model.entity.PlayRecore;
+import dsf.online_class.model.entity.PlayRecord;
 import dsf.online_class.model.entity.Video;
 import dsf.online_class.model.entity.VideoOrder;
 import dsf.online_class.service.VideoOrderService;
@@ -17,6 +19,8 @@ import java.util.UUID;
 @Service
 public class VideoOrderServiceImpl implements VideoOrderService {
 
+    @Autowired
+    private PlayRecordMapper playRecordMapper;
 
     @Autowired
     private VideoMapper videoMapper;
@@ -51,13 +55,23 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         //生成播放记录
         if(1==rows){
             Episode episode = episodeMapper.findFirstEpisodeByVideoId((videoId));
-            PlayRecore playRecore = new PlayRecore();
-            playRecore.setCreateTime(new Date());
-            playRecore.setEpisodeId(episode.getId());
-
-
+            if(null == episode){
+                throw new CustomException(-1,"下单失败");
+            }
+            PlayRecord playRecord = new PlayRecord();
+            playRecord.setCreateTime(new Date());
+            playRecord.setEpisodeId(episode.getId());
+            playRecord.setCurrentNum(episode.getNum());
+            playRecord.setUserId(userId);
+            playRecord.setVideoId(videoId);
+            playRecordMapper.savePlayRecord(playRecord);
         }
 
+        return rows;
+    }
+
+    @Override
+    public int addPlayRecord(int userId) {
         return 0;
     }
 }

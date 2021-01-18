@@ -5,6 +5,11 @@ public class CustomException extends RuntimeException{
 
     private String msg;
 
+    public CustomException(Integer code,String msg)
+    {
+        this.code = code;
+        this.msg  = msg;
+    }
     public Integer getCode() {
         return code;
     }

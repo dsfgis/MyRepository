@@ -2,7 +2,7 @@ package dsf.online_class.model.entity;
 
 import java.util.Date;
 
-public class PlayRecore {
+public class PlayRecord {
 
     private Integer id;
     private Integer userId;
