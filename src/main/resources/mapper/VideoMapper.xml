@@ -10,7 +10,7 @@
 
         select * from video_banner order by wight asc
     </select>
-    <select id="findById">
+    <select id="findById" resultType="Video">
         select * from video where id = #{video_id}
     </select>
     <select id="findDetailById" resultMap="VideoDetailResultMap">

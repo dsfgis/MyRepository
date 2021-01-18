@@ -4,6 +4,6 @@
 <mapper namespace="dsf.online_class.mapper.EpisodeMapper">
 
     <select id="findFirstEpisodeByVideoId" resultType="Episode">
-        select * from episode where video_id==#{video_id} and num = 1
+        select * from episode where video_id = #{video_id} and num = 1
     </select>
 </mapper>

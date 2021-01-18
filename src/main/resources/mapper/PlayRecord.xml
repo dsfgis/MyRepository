@@ -5,7 +5,7 @@
 
     <insert id="savePlayRecord" keyProperty="id" keyColumn="id" useGeneratedKeys="true">
 
-        insert into play_record ("user_id","video_id","current_num","create_time","episode_id")
-        values (#{userId},#{videoId},#{num},#{createTime},#{episodeId})
+        insert into play_record (user_id,video_id,current_num,create_time,episode_id)
+        values (#{userId},#{videoId},#{currentNum},#{createTime},#{episodeId})
     </insert>
 </mapper>
