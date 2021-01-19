@@ -12,4 +12,7 @@
         values (#{outTradeNo,jdbcType=VARCHAR},#{state,jdbcType=INTEGER},#{createTime,jdbcType=TIMESTAMP},#{totalFree,jdbcType=INTEGER},
         #{videoId,jdbcType=INTEGER},#{videoTitle,jdbcType=VARCHAR},#{videoImg,jdbcType=VARCHAR},#{userId,jdbcType=INTEGER})
     </insert>
+    <select id="listOrderByUserID" resultType="VideoOrder">
+        select * from video_order where user_id = #{userId}
+    </select>
 </mapper>

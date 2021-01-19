@@ -1,9 +1,9 @@
 package dsf.online_class.mapper;
 
-import dsf.online_class.model.entity.Video;
 import dsf.online_class.model.entity.VideoOrder;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 
 
 public interface VideoOrderMapper {
@@ -18,6 +18,13 @@ public interface VideoOrderMapper {
      * @return
      */
     int saveOrder(VideoOrder vidoOrder);
+
+    /**
+     * 订单列表
+     * @param userId
+     * @return
+     */
+    List<VideoOrder> listOrderByUserID(@Param("user_id") Integer userId);
 }
 
 

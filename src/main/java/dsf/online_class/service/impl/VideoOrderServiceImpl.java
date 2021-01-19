@@ -12,8 +12,10 @@ import dsf.online_class.model.entity.VideoOrder;
 import dsf.online_class.service.VideoOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -35,6 +37,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
      * @return
      */
     @Override
+    @Transactional
     public int save(int userId, int videoId) {
 
         VideoOrder videoOrder = videoOrderMapper.findByUserIdAndVideoIdAndState(userId,videoId,1);
@@ -56,7 +59,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         if(1==rows){
             Episode episode = episodeMapper.findFirstEpisodeByVideoId((videoId));
             if(null == episode){
-                throw new CustomException(-1,"下单失败");
+                throw new CustomException(-1,"视频没有集信息，请检查");
             }
             PlayRecord playRecord = new PlayRecord();
             playRecord.setCreateTime(new Date());
@@ -73,5 +76,10 @@ public class VideoOrderServiceImpl implements VideoOrderService {
     @Override
     public int addPlayRecord(int userId) {
         return 0;
+    }
+
+    @Override
+    public List<VideoOrder> listOrderByUserID(Integer userId) {
+        return videoOrderMapper.listOrderByUserID(userId);
     }
 }
