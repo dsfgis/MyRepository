@@ -1,16 +1,27 @@
 package dsf.online_class.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class VideoOrder {
+    @JsonProperty("video_id")
     private Integer videoId;
+    @JsonProperty("total_fee")
     private Integer totalFree;
+    @JsonProperty("user_id")
     private Integer userId;
+    @JsonProperty("out_trade_no")
     private String outTradeNo;
     private Integer state;
     private Integer id;
+    @JsonProperty("video_title")
     private String videoTitle;
+    @JsonProperty("video_img")
     private String videoImg;
+    @JsonProperty("create_time")
+    @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
 
     @Override

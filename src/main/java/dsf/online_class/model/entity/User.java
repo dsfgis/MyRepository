@@ -1,13 +1,20 @@
 package dsf.online_class.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class User {
     private Integer id;
     private String name;
     private String pwd;
+    @JsonProperty("head_img")
     private String headImg;
     private String phone;
+
+    @JsonProperty("create_time")
+    @JsonFormat(pattern = "yyyy-mm-dd HH:mm:ss",timezone = "GMT+8")
     private Date createTime;
 
     @Override
