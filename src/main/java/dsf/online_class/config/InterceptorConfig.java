@@ -20,8 +20,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
 
         //用户注册及登录不拦截
         registry.addInterceptor(loginInterceptor()).addPathPatterns("/api/v1/pri/*/*/**")
-        .excludePathPatterns("/api/v1/pri/user/login","/api/v1/pri/user/register")
-        ;
+        .excludePathPatterns("/api/v1/pri/user/login","/api/v1/pri/user/register");
         WebMvcConfigurer.super.addInterceptors(registry);
 
     }
