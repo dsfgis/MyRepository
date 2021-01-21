@@ -3,6 +3,7 @@ package dsf.online_class.controller;
 import dsf.online_class.model.entity.Video;
 import dsf.online_class.model.entity.VideoBanner;
 import dsf.online_class.service.VideoService;
+import dsf.online_class.utils.BaseCache;
 import dsf.online_class.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,8 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+    @Autowired
+    private BaseCache baseCache;
 
     @RequestMapping(value = "listvideo")
 
