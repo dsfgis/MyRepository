@@ -23,10 +23,7 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
-
         try {
-
             //从http头或参数中获取token值
             String token = request.getHeader("token");
             if(null == token){
@@ -73,7 +70,6 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     public static void sendJsonMessage(HttpServletResponse response,Object obj){
         try {
-
             ObjectMapper objectMapper = new ObjectMapper();
             response.setContentType("application/json;charset=utf-8");
             PrintWriter writer = response.getWriter();
